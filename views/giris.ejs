@@ -1,0 +1,121 @@
+<!doctype html>
+<html>
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Reenie+Beanie" rel="stylesheet">
+
+    <title>Cevapsız Sorular</title>
+
+    <link rel="stylesheet" href="/css/social.css">
+  </head>
+  <body>
+
+      <nav class="navbar navbar-dark bg-info">
+      <ul class="nav justify-content-end">
+
+          <li class="nav-item">
+              <a style="font-family: 'Reenie Beanie', cursive; color:#ffffff; font-size:45px; text-decoration: none; " href="/">Cevapsız Sorular</a>
+          </li>
+</ul>
+</nav>
+
+
+
+
+
+    <div class="container">
+        <form style="padding-left:15%; padding-right:15%; margin-top: 15%; " action="/" method="POST">
+
+
+            <!-- <form>  --> 
+
+                    <div class="form-row">
+                            <div class="form-group col-md-6">
+                              <label for="inputEmail4"></label>
+                              <input type="email" required="true" name="username" class="form-control" id="inputEmail4" placeholder="E-posta">
+                            </div>
+                            <div class="form-group col-md-6">
+                              <label for="inputPassword4"></label>
+                              <input type="password" required="true" name="password" class="form-control" id="inputPassword4" placeholder="Şifre">
+                            </div>
+                          </div>
+
+ <!--                                
+                          <div class="form-group">
+                            <label for="inputAddress2">Address 2</label>
+                            <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+                          </div>
+                          <div class="form-row">
+                            <div class="form-group col-md-6">
+                              <label for="inputCity">City</label>
+                              <input type="text" class="form-control" id="inputCity">
+                            </div>
+                            <div class="form-group col-md-4">
+                              <label for="inputState">State</label>
+                              <select id="inputState" class="form-control">
+                                <option selected>Choose...</option>
+                                <option>...</option>
+                              </select>
+                            </div>
+                            <div class="form-group col-md-2">
+                              <label for="inputZip">Zip</label>
+                              <input type="text" class="form-control" id="inputZip">
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <div class="form-check">
+                              <input class="form-check-input" type="checkbox" id="gridCheck">
+                              <label class="form-check-label" for="gridCheck">
+                                Check me out
+                              </label>
+                            </div>
+-->   
+                        <button type="submit" class="btn btn-info">Giriş Yap</button>
+                        <a href="http://localhost:3000/kaydol" class="btn btn-outline-info" role="button" aria-pressed="true">E-posta adresiyle kaydol</a>
+
+
+            <!-- </form>  -->
+
+
+        </form>
+
+          
+      </form>
+<div style="padding-left: 15%;">
+    <h5 style="color: #666666; margin-top: 3%; margin-bottom: 3%;">veya</h5>
+
+      <form action="/auth/facebook"> 
+        <button class="loginBtn loginBtn--facebook">
+            Facebook ile bağlan
+          </button>
+      </form>
+
+      <form action="/auth/google"> 
+        <button class="loginBtn loginBtn--google">
+            Google ile bağlan
+          </button>
+      </form>
+
+    </div>
+
+    </div>
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+  </body>
+
+</html>
+<% include footer %>

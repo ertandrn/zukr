@@ -1,0 +1,162 @@
+<% include navbar %>
+<!doctype html>
+<html>
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>Kaydol</title>
+    
+  </head>
+  <body>
+
+    <div class="container">
+        <form style="margin-left: 10%; margin-top: 10%; margin-right: 10%" action="/guncelle/<%= currentUser._id %>?_method=PUT" method="POST">
+            <!-- <form>  -->
+                    <div class="form-row">
+                      <div class="form-group col-md-6">
+                        <label for="inputEmail4">Ad</label>
+                        <input type="text" name="currentUser[isim]" class="form-control" placeholder="Ad" value="<%= currentUser.isim %>">
+                      </div>
+                      <div class="form-group col-md-6">
+                            <label for="inputEmail4">Soyad</label>
+                        <input type="text" name="currentUser[soyisim]" class="form-control" placeholder="Soyad" value="<%= currentUser.soyisim %>">
+                      </div>
+                    </div>
+
+
+
+                            <div class="form-group">
+                              <label for="inputEmail4">E-posta</label>
+                              <input type="email" name="currentUser[username]" class="form-control" id="inputEmail4" placeholder="E-posta" value="<%= currentUser.username %>">
+                            </div>
+
+                          <div class="form-group">
+                          <label for="inputAddress">Kullanıcı Adı</label>
+                          <label class="sr-only" for="inlineFormInputGroupUsername2">Username</label>
+                            <div class="input-group mb-2 mr-sm-2">
+                                <div class="input-group-prepend">
+                                <div class="input-group-text">@</div>
+                                </div>
+                                <input type="text" name="currentUser[kullanici_adi]" class="form-control" id="inlineFormInputGroupUsername2" placeholder="Kullanıcı Adı" value="<%= currentUser.kullanici_adi %>">
+                            </div>
+
+
+                          <div class="form-group">
+                            <label for="inputAddress">Meslek</label>
+                            <input type="text" name="currentUser[meslek]" class="form-control" id="inputAddress" placeholder="Meslek" value="<%= currentUser.meslek %>">
+                          </div>
+                          <div class="form-group">
+                            <label for="inputState">Doğum Tarihi</label>
+                                <select id="inputState" name="currentUser[dogum_tarihi]" class="form-control">
+                                <option selected> <%= currentUser.dogum_tarihi %> </option>
+                                <% for(var i=2017; i>1900; i--) {%>
+                                        <option><%= i %></option>
+                                     <% } %>
+                                </option>
+                              </select>
+                            </div>
+                            <div class="form-group">
+                                    <label for="inputState">Cinsiyet</label>
+                                        <select id="inputState" name="currentUser[cinsiyet]" class="form-control">
+                                        <option selected> <%= currentUser.cinsiyet %> </option>
+<!--Kullanıcının cinsiyeti Kadın ise diğer seçenek Erkek-->
+                                        <%if (currentUser.cinsiyet == 'Kadın') { %>
+                                          <option>Erkek</option>></option>
+                                          <% } %>
+<!--Kullanıcının cinsiyeti Erkek ise diğer seçenek Kadın-->
+                                          <%if (currentUser.cinsiyet == 'Erkek') { %>
+                                            <option>Kadın</option>></option>
+                                            <% } %>
+
+<!--Kullanıcının cinsiyeti null ise diğer seçenek Kadın-->
+                                          <%if (currentUser.cinsiyet == null) { %>
+                                            <option>Kadın</option>></option>
+                                            <option>Erkek</option>></option>
+                                            <% } %>
+
+                                            <%if (currentUser.cinsiyet == '') { %>
+                                              <option>Kadın</option>></option>
+                                              <option>Erkek</option>></option>
+                                              <% } %>
+
+<!--
+                                                <option>Erkek</option>></option>
+                                                <option>Kadın</option>></option>
+-->
+                                      </select>
+                                      
+                                    </div>
+
+
+ <!--                                
+                          <div class="form-group">
+                            <label for="inputAddress2">Address 2</label>
+                            <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+                          </div>
+                          <div class="form-row">
+                            <div class="form-group col-md-6">
+                              <label for="inputCity">City</label>
+                              <input type="text" class="form-control" id="inputCity">
+                            </div>
+                            <div class="form-group col-md-4">
+                              <label for="inputState">State</label>
+                              <select id="inputState" class="form-control">
+                                <option selected>Choose...</option>
+                                <option>...</option>
+                              </select>
+                            </div>
+                            <div class="form-group col-md-2">
+                              <label for="inputZip">Zip</label>
+                              <input type="text" class="form-control" id="inputZip">
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <div class="form-check">
+                              <input class="form-check-input" type="checkbox" id="gridCheck">
+                              <label class="form-check-label" for="gridCheck">
+                                Check me out
+                              </label>
+                            </div>
+-->   
+                        <button type="submit" class="btn btn-info">Bilgilerini Güncelle</button>
+                          </div>
+
+                  
+
+            <!-- </form>  -->
+
+
+        </form>
+
+        <div class="container" style="margin-left:9%; margin-right:9%;" >
+
+
+            <form  action="/guncelle/<%= currentUser._id %>?_method=DELETE" method="POST">
+
+              <button  class="btn btn-danger">Hesabını Sil</button>
+
+            </form>
+
+          </div>
+
+        
+
+    </div>
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+  </body>
+</html>
+<% include footer %>

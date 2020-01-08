@@ -1,0 +1,167 @@
+<% include navbar %>
+    <!doctype html>
+        <html>
+          <head>
+            <!-- Required meta tags -->
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        
+            <!-- Bootstrap CSS -->
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        
+            <title>Cevapsız Sorular</title>
+
+              <link rel="stylesheet" href="/css/custom.css">
+            
+          </head>
+          <body>
+
+                <div class="container">
+                        <div class="row">
+                          <div style="margin-top:35px; margin-bottom:75px;" class="col-">
+                            
+                            <!--
+                            1.Stun
+                            -->
+
+                            <h4 style="color: #666666">Etiketler</h4>
+
+                            <div class="list-group">
+
+
+                                    <a href="/etiket/genel" class="list-group-item list-group-item-action">Genel</a>
+                                    <a href="/etiket/yazilim" class="list-group-item list-group-item-action">Yazılım</a>
+                                    <a href="/etiket/donanim" class="list-group-item list-group-item-action">Donanım</a>
+                                    <a href="/etiket/kultur" class="list-group-item list-group-item-action">Kültür</a>
+                                    <a href="/etiket/sanat" class="list-group-item list-group-item-action">Sanat</a>
+                                    <a href="/etiket/eglence" class="list-group-item list-group-item-action">Eğlence</a>
+                                    <a href="/etiket/bilim" class="list-group-item list-group-item-action">Bilim</a>
+                                    <a href="/etiket/internet" class="list-group-item list-group-item-action">İnternet</a>
+                                    <a href="/etiket/oyun" class="list-group-item list-group-item-action">Oyun</a>
+                                    <a href="/etiket/saglik" class="list-group-item list-group-item-action">Sağlık</a>
+                                    <a href="/etiket/alisveris" class="list-group-item list-group-item-action">Alışveriş</a>
+                                    <a href="/etiket/kariyer" class="list-group-item list-group-item-action">Kariyer</a>
+                                    <a href="/etiket/sinema" class="list-group-item list-group-item-action">Sinema</a>
+                                    <a href="/etiket/muzik" class="list-group-item list-group-item-action">Müzik</a>
+                                    <a href="/etiket/kitap" class="list-group-item list-group-item-action">Kitap</a>
+                                    <a href="/etiket/egitim" class="list-group-item list-group-item-action">Eğitim</a>
+                                    <a href="/etiket/spor" class="list-group-item list-group-item-action">Spor</a>
+
+
+
+                                  </div>
+
+                            
+                            <!--
+                            1.Stun sonu
+                            -->
+
+                          </div>
+                          <div style= "margin-top:35px; margin-bottom:75px;" class="col-xl">
+
+                            <h4 style="color: #666666">Tüm Sorular</h4>
+
+                                <% sorular.forEach(function(soru){ %>
+    
+                                    <div style= "margin-bottom:25px;" class="card">
+                                            <div  class="card-header" style="display: flex; justify-content: space-between">
+                                            <span><%= soru.baslik %>
+                                            <br>
+                                            <%= soru.olusturan.username %></span>
+                                                <div id="rate" style="width: 120px;">
+                                                    <span id="like-text-<%= soru._id %>" class="like-text"><%= soru.like %></span>
+                                                    <a id="<%= soru._id %>" onclick="rate(event,'like',this.id);"><span class="like"></span></a>
+                                                    <a id="<%= soru._id %>" onclick="rate(event,'dislike',this.id);"><span class="dislike"></span></a>
+                                                    <span id="dislike-text-<%= soru._id %>" class="dislike-text"><%= soru.dislike %></span>
+                                                </div>
+                                            </div>
+                                            <div class="card-body">
+                                              <p class="card-text"><%= soru.icerik %></p>
+                                              <a href="/soru/<%= soru._id %>" class="btn btn-outline-info">Görüntüle</a>
+                                            </div>
+                                          </div>
+                
+                                <%	}); %>
+
+                                <div >
+                                        <a href="/soru/soruSor" class="btn btn-info">Yeni Soru Sor</a>
+                                    </div>
+
+                        </div>
+                          <div style= "margin-top:35px; margin-bottom:75px;" class="col-">
+                            
+                            <h4 style="color: #666666">En Çok Puanlanan Sorular</h4>
+
+
+                            <% yuksekPuan.forEach(function(soru){ %>
+
+
+
+                                <div class="card border-info mb-3" style="max-width: 18rem;">
+                                    <div class="card-header">
+                                        <span><%= soru.baslik %>
+                                            <br>
+                                            <%= soru.olusturan.username %></span>
+                                            <div id="rate" style="width: 120px; padding: 4px;">
+                                                <span id="like-text-<%= soru._id %>" class="like-text"><%= soru.like %></span>
+                                                <!--
+                                                <a id="<%= soru._id %>" onclick="rate(event,'like',this.id);"><span class="like"></span></a>
+                                                <a id="<%= soru._id %>" onclick="rate(event,'dislike',this.id);"><span class="dislike"></span></a>
+                                                
+                                                <span id="dislike-text-<%= soru._id %>" class="dislike-text"><%= soru.dislike %></span>
+                                                -->
+                                            </div>
+                                    </div>
+                                    <div class="card-body">
+                                      <p class="card-text"><%= soru.icerik %></p>
+                                      <a href="/soru/<%= soru._id %>" class="btn btn-outline-info">Görüntüle</a>
+                                    </div>
+                                  </div>
+
+
+
+                                  <!--
+
+                                <div style= "margin-top:25px;" class="card">
+                                        <div  class="card-header" style="display: flex; justify-content: space-between">
+                                        <span><%= soru.olusturan.username %>
+                                        <br>
+                                        <%= soru.baslik %></span>
+                                            <div id="rate" style="width: 120px;">
+                                                <span id="like-text-<%= soru._id %>" class="like-text"><%= soru.like %></span>
+                                                <a id="<%= soru._id %>" onclick="rate(event,'like',this.id);"><span class="like"></span></a>
+                                                <a id="<%= soru._id %>" onclick="rate(event,'dislike',this.id);"><span class="dislike"></span></a>
+                                                <span id="dislike-text-<%= soru._id %>" class="dislike-text"><%= soru.dislike %></span>
+                                            </div>
+                                        </div>
+                                        <div class="card-body">
+                                          <p class="card-text"><%= soru.icerik %></p>
+                                          <a href="/soru/<%= soru._id %>" class="btn btn-outline-info">Görüntüle</a>
+                                        </div>
+                                      </div>
+            
+                           
+
+                            -->
+
+                            <%	}); %>
+
+                            
+
+
+                          <!--2.Stun sonu--> 
+                          </div>
+                        </div>
+                    </div>
+                <script>
+                    function rate(event, rateType, soruId) {
+                        var xhttp = new XMLHttpRequest();
+                        xhttp.open("POST", /soru/ + soruId + "/" + rateType, true);
+                        xhttp.send();
+                        var count = parseInt(document.getElementById(rateType+'-text-'+soruId).innerHTML);
+                        document.getElementById(rateType+'-text-'+soruId).innerHTML = count + 1 ;
+                    }
+                </script>
+    </body>
+</html>
+<% include footer %>

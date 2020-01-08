@@ -1,0 +1,59 @@
+<% include navbar %>
+<!doctype html>
+<html>
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>Soru Sor</title>
+    
+  </head>
+  <body>
+
+		<form style="padding:10%;" action="/soru" method="POST">
+
+				<div class="form-group">
+				  <label for="exampleFormControlInput1"></label>
+				  <input type="text" required="true" name="baslik" class="form-control" id="exampleFormControlInput1" placeholder="Soru Başlığı">
+				</div>
+
+				<div class="form-group">
+				  <label for="exampleFormControlTextarea1"></label>
+				  <textarea class="form-control" required="true" name="icerik" id="exampleFormControlTextarea1" placeholder="Soru içeriği.." rows="3"></textarea>
+				</div>
+
+				<div class="form-group">
+						<label for="inputState">Etiket</label>
+								<select id="inputState" name="etiket" class="form-control">
+								<option selected>Genel</option>
+								<option>Yazılım</option>></option>
+								<option>Donanım</option>></option>
+								<option>Kültür</option>></option>
+								<option>Sanat</option>></option>
+								<option>Eğlence</option>></option>
+								<option>Bilim</option>></option>
+								<option>İnternet</option>></option>
+								<option>Oyun</option>></option>
+								<option>Sağlık</option>></option>
+								<option>Alışveriş</option>></option>
+								<option>Kariyer</option>></option>
+								<option>Sinema</option>></option>
+								<option>Müzik</option>></option>
+								<option>Kitap</option>></option>
+								<option>Eğitim</option>></option>
+								<option>Spor</option>></option>
+							</select>
+						</div>
+				
+				<button type="submit" class="btn btn-info">Soruyu Yayınla</button>
+				</div>
+
+			  </form>
+
+  </body>
+</html>
+<% include footer %>

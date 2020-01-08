@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+   <!-- Google Font -->
+   <link href="https://fonts.googleapis.com/css?family=Reenie+Beanie" rel="stylesheet">
+
+    <title>Cevapsız Sorular</title>
+  </head>
+  <body>
+        <nav class="navbar navbar-dark bg-info">
+
+
+
+                <ul class="nav justify-content-end">
+
+                        <li class="nav-item">
+                            <a style="font-family: 'Reenie Beanie', cursive; color:#ffffff; font-size:45px; text-decoration: none; " href="/sistem">Cevapsız Sorular</a>
+                            <!-- 
+                            <h3 class="nav-link disabled" href="#">CEVAPSIZ SORULAR</h3>
+                             -->
+                        </li>
+
+                </ul>
+
+                      <ul class="nav justify-content-right">
+                          <li class="nav-item">
+                            <a style="color:#ffffff" onmouseover="this.style.color='#6c757d'" onmouseout="this.style.color='#ffffff'" class="nav-link active;" href="/sistem">Ana Sayfa</a>
+                          </li>
+                          <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                          <li class="nav-item">
+                            <a style="color:#ffffff" onmouseover="this.style.color='#6c757d'" onmouseout="this.style.color='#ffffff'" class="nav-link" href="/guncelle/<%= currentUser._id %>"><%= currentUser.isim %> <%= currentUser.soyisim %></a>
+                          </li>
+                          <li class="nav-item">
+                            <a style="color:#ffffff" onmouseover="this.style.color='#6c757d'" onmouseout="this.style.color='#ffffff'" class="nav-link" href="/cikis">Çıkış Yap</a>
+                          </li>
+                          
+                        </ul>
+
+
+        </nav>
+
+  </body>

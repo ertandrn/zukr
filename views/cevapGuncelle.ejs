@@ -1,0 +1,32 @@
+<% include navbar %>
+<!doctype html>
+<html>
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>Cevap Yaz</title>
+
+</head>
+<body>
+
+<form style="padding:10%;" action="/soru/<%= soru._id %>/cevapGuncelle/<%= cevap._id %>?_method=PUT" method="POST">
+    <h2><%= soru.baslik %></h2>
+    <div class="form-group">
+        <label for="exampleFormControlTextarea1"></label>
+        <label for="exampleFormControlTextarea1"><%= soru.icerik %></label>
+        <textarea class="form-control" required="true" name="cevap[cevap]" id="exampleFormControlTextarea1"
+                  rows="3"><%= cevap.cevap %></textarea>
+    </div>
+    <button type="submit" class="btn btn-info">Cevabı Güncelle</button>
+    </div>
+</form>
+
+</body>
+</html>
+<% include footer %>

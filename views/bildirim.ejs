@@ -1,0 +1,82 @@
+<% include navbar %>
+    <!doctype html>
+        <html>
+          <head>
+            <!-- Required meta tags -->
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        
+            <!-- Bootstrap CSS -->
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        
+            <title>Cevapsız Sorular</title>
+
+            
+          </head>
+          <body>
+
+                <div class="container">
+    
+
+
+                            <h4 style="color: #666666">Tüm Sorular</h4>
+
+                            <% sorular[0].cevaplar.forEach(function(cevap){ %>
+
+
+                                <div class="card-body">
+                                    <p class="card-text">Cevap burada görnmesi lazım <%= cevap.cevap %></p>
+                                </div>
+
+                            <% }); %>
+
+                                <% sorular.forEach(function(soru){ %>
+
+                                    <% if(currentUser && soru.olusturan.id.equals(currentUser._id)){ %>
+
+
+    
+                                    <div style= "margin-bottom:25px;" class="card">
+                                            <div  class="card-header" style="display: flex; justify-content: space-between">
+                                            <span><%= soru.baslik %>
+                                            <br>
+                                            <%= soru.olusturan.username %></span>
+
+                                            </div>
+                                            <div class="card-body">
+                                              <p class="card-text"><%= soru.icerik %></p>
+                                              <a href="/soru/<%= soru._id %>" class="btn btn-outline-info">Görüntüle</a>
+                                            </div>
+                                     </div>
+
+
+
+                                     <% sorular[0].cevaplar.forEach(function(cevap){ %>
+
+
+                                        <div class="card-body">
+                                            <p class="card-text">Cevap burada görnmesi lazım <%= cevap.cevap %></p>
+                                            <a href="/soru/<%= soru._id %>" class="btn btn-outline-info">Görüntüle</a>
+                                        </div>
+
+                                    <% }); %>
+
+
+
+
+
+
+
+
+
+                
+                                
+                                     <% } %>
+                                <%	}); %>
+
+
+                    </div>
+
+    </body>
+</html>
+<% include footer %>

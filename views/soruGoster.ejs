@@ -1,0 +1,85 @@
+<% include navbar %>
+<!doctype html>
+<html>
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="/css/custom.css">
+
+    <title>Cevapsız Sorular</title>
+
+</head>
+<body>
+
+<div style="margin-top:25px; margin-left:20%; margin-right:20%; " class="card text-white bg-info mb-3">
+    
+
+
+    <div class="card-header">
+        <%= soru.baslik %>
+        <br>
+        <%= soru.olusturan.username %>
+        <br>
+        Etiket: <%= soru.etiket %>
+    </div>
+    <div class="card-body">
+        <p class="card-text"><%= soru.icerik %></p>
+    </div>
+
+    <% if(currentUser && soru.olusturan.id.equals(currentUser._id)){ %>
+
+    <div style="margin:5px">
+        <a style="float:right;" href="/soru/<%= soru._id %>/soruGuncelle" class="btn btn-light">Düzenle</a>
+    </div>
+
+    <% } %>
+
+</div>
+
+<% soru.cevaplar.forEach(function(cevap){ %>
+
+    <div style="margin-top:25px; margin-left:20%; margin-right:20%; " class="card bg-light mb-3">
+        <div class="card-header" style="display: flex; justify-content: space-between">
+            <span><%= cevap.olusturan.username %></span>
+           <div id="rate" style="width: 120px;">
+               <span id="like-text-<%= cevap._id %>" class="like-text"><%= cevap.like %></span>
+               <a id="<%= cevap._id %>" onclick="rate(event,'like',this.id);"><span class="like"></span></a>
+               <a id="<%= cevap._id %>" onclick="rate(event,'dislike',this.id);"><span class="dislike"></span></a>
+               <span id="dislike-text-<%= cevap._id %>" class="dislike-text"><%= cevap.dislike %></span>
+           </div>
+        </div>
+        <div class="card-body">
+            <p class="card-text"><%= cevap.cevap %></p>
+
+
+
+            <% if(currentUser && cevap.olusturan.id.equals(currentUser._id)){ %>
+            <a style="float:right;" href="/soru/<%= soru._id %>/cevapGuncelle/<%= cevap._id %>" class="btn btn-light">Düzenle</a>
+            <% } %>
+        </div>
+    </div>
+
+<% }) %>
+
+<a style="margin-top:25px;  margin-bottom:75px; margin-left:20%; margin-right:20%;" href="/soru/<%= soru._id %>/cevap"
+   class="btn btn-info">Cevap Yaz</a>
+   
+
+<script>
+    function rate(event, rateType, cevapId) {
+        var xhttp = new XMLHttpRequest();
+        xhttp.open("POST", /cevap/ + cevapId + "/" + rateType, true);
+        xhttp.send();
+        var count = parseInt(document.getElementById(rateType+'-text-'+cevapId).innerHTML);
+        document.getElementById(rateType+'-text-'+cevapId).innerHTML = count + 1 ;
+    }
+</script>
+</body>
+</html>
+<% include footer %>
